@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agricultural Nonwoven Products - Sarni Pack FZE</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+  <style>
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background-color: #fafafa;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    /* Navbar */
+    .navbar {
+      background-color: #004d7a;
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 700;
+      user-select: none;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffd700;
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      user-select: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    /* Page header */
+    h1.page-title {
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: #004d7a;
+      text-align: center;
+      margin: 3rem 0 2rem 0;
+      user-select: none;
+    }
+    /* Section styling */
+    section {
+      max-width: 1140px;
+      margin: 0 auto 4rem auto;
+      padding: 0 1rem;
+    }
+    /* Intro paragraph */
+    .intro-paragraph {
+      font-size: 1.05rem;
+      color: #464646;
+      max-width: 720px;
+      margin: 0 auto 2rem auto;
+      line-height: 1.6;
+      text-align: center;
+      user-select: text;
+    }
+    /* Product details grid */
+    .feature-list {
+      list-style: disc inside;
+      max-width: 720px;
+      margin: 0 auto 1.5rem auto;
+      color: #444;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+    .feature-list li {
+      margin-bottom: 0.7rem;
+    }
+    /* Subsections */
+    .subsection {
+      max-width: 720px;
+      margin: 2rem auto;
+      user-select: text;
+    }
+    .subsection h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #004d7a;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .subsection p {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.5;
+      margin-bottom: 1.2rem;
+    }
+    /* Benefits list */
+    .benefits-list {
+      list-style: none;
+      padding-left: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem 2rem;
+      justify-content: center;
+      user-select: text;
+    }
+    .benefits-list li {
+      background: #e1f0fe;
+      color: #0077b6;
+      font-weight: 600;
+      border-radius: 14px;
+      padding: 0.9rem 1.4rem;
+      min-width: 250px;
+      text-align: center;
+      box-shadow: 0 2px 10px rgba(0, 119, 182, 0.15);
+    }
+    /* Footer */
+    .footer {
+      background-color: #023047;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .benefits-list {
+        flex-direction: column;
+        align-items: center;
+      }
+      .benefits-list li {
+        min-width: 100%;
+      }
+    }
+    @media (max-width: 480px) {
+      h1.page-title {
+        font-size: 2rem;
+      }
+      .subsection h2 {
+        font-size: 1.6rem;
+      }
+      .intro-paragraph,
+      .subsection p {
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo"><h1>Sarni Pack FZE</h1></div>
+      <div class="hamburger" id="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html" class="active">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section>
+    <h1 class="page-title">Agricultural Nonwoven Products</h1>
+    <p class="intro-paragraph">
+      Our agricultural nonwoven fabrics provide innovative and sustainable solutions to support crop
+      protection, yield improvement, and environmental stewardship.
+    </p>
+
+    <div class="subsection">
+      <h2>Product Applications</h2>
+      <ul class="feature-list">
+        <li>Crop Covers: Maintain optimal soil moisture and temperature, extend growing season, protect from frost and hail.</li>
+        <li>Weed Control Fabrics: Suppress unwanted vegetation while allowing air, water, and nutrients to reach the soil.</li>
+        <li>Shade Nets: Protect plants from excess sunlight and heat stress to improve crop quality.</li>
+        <li>Insect and Pest Barriers: Physically protect crops from damaging insects and birds without pesticides.</li>
+        <li>Root and Fruit Bags: Enhance fruit ripening and root protection with customized nonwoven bags.</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h2>Key Benefits</h2>
+      <ul class="benefits-list">
+        <li>Lightweight and Durable: Resists tearing and weather exposure for multiple growing seasons.</li>
+        <li>UV Treated: Protects fabrics and crops from harmful ultraviolet rays.</li>
+        <li>Breathable and Permeable: Allows air and water flow for healthy plant growth.</li>
+        <li>Eco-Friendly Options: Biodegradable and recyclable fabrics reduce environmental impact.</li>
+        <li>Customized Sizes and Colors: Tailored to your specific crop and field requirements.</li>
+      </ul>
+    </div>
+
+    <div class="subsection">
+      <h2>Why Choose Sarni Pack FZE?</h2>
+      <p>
+        With years of expertise in nonwoven fabric manufacturing, Sarni Pack FZE offers premium quality products designed
+        especially for agricultural applications. Our sustainable materials, cutting-edge technology, and customer-centric
+        approach help farmers increase productivity and promote environmentally responsible farming practices.
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    &copy; 2025 Sarni Pack FZE. All rights reserved.
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      const visible = navLinks.style.display === 'flex';
+      navLinks.style.display = visible ? 'none' : 'flex';
+      navLinks.style.flexDirection = 'column';
+    });
+  </script>
+</body>
+</html>

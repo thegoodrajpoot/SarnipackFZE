@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - Sarni Pack FZE</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+  <style>
+    /* Reset and base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      background-color: #fafafa;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    /* Navbar */
+    .navbar {
+      background-color: #004d7a;
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .navbar .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 700;
+      user-select: none;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #ffd700;
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+      flex-direction: column;
+      gap: 5px;
+      user-select: none;
+    }
+    .hamburger span {
+      display: block;
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    /* Contact Hero Section */
+    .contact-hero {
+      background-color: #0077b6;
+      color: white;
+      text-align: center;
+      padding: 6rem 1rem 5rem;
+      user-select: none;
+    }
+    .contact-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .contact-hero p {
+      font-size: 1.3rem;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 3rem;
+    }
+    .contact-cards {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .contact-quick-card {
+      background: white;
+      color: #004d7a;
+      padding: 1.8rem 2rem;
+      border-radius: 14px;
+      flex: 1 1 220px;
+      max-width: 260px;
+      box-shadow: 0 6px 22px rgba(0, 119, 182, 0.25);
+      cursor: default;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .contact-quick-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 30px rgba(0, 119, 182, 0.35);
+    }
+    .quick-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #0077b6;
+      user-select: none;
+    }
+    .contact-quick-card h3 {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin-bottom: 0.4rem;
+    }
+    .contact-quick-card p {
+      font-weight: 500;
+      font-size: 1rem;
+      color: #314046;
+    }
+    /* Contact Main Section */
+    .contact-main {
+      padding: 4rem 0 6rem;
+      user-select: text;
+    }
+    .contact-grid {
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .contact-info-card {
+      background: white;
+      border-radius: 12px;
+      max-width: 440px;
+      flex: 1 1 420px;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+    }
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+      color: #004d7a;
+      font-weight: 700;
+    }
+    .header-icon {
+      font-size: 2.8rem;
+      color: #0096c7;
+      user-select: none;
+    }
+    .info-content {
+      display: flex;
+      flex-direction: column;
+      gap: 1.4rem;
+    }
+    .contact-methods {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .method {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .method-icon {
+      font-size: 1.6rem;
+      color: #0096c7;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .method-details {
+      display: flex;
+      flex-direction: column;
+      color: #444;
+    }
+    .method-details .label {
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .method-details .value,
+    .method-details .hours span {
+      font-size: 0.95rem;
+      color: #555;
+      user-select: text;
+    }
+    .hours {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    /* Social Connect */
+    .social-connect {
+      margin-top: 2.5rem;
+    }
+    .social-connect h3 {
+      font-weight: 700;
+      color: #004d7a;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .social-link {
+      color: #0077b6;
+      font-size: 1.8rem;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+    .social-link:hover {
+      color: #004d7a;
+    }
+    /* Contact Form Card */
+    .contact-form-card {
+      background: white;
+      border-radius: 12px;
+      max-width: 600px;
+      flex: 1 1 580px;
+      box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+      padding: 2rem 3rem 2.5rem;
+    }
+    .form-header {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .form-header h2 {
+      font-weight: 700;
+      font-size: 2rem;
+      color: #004d7a;
+      user-select: none;
+      margin-bottom: 0.4rem;
+    }
+    .form-header p {
+      color: #555;
+      font-weight: 500;
+      font-size: 1rem;
+      user-select: none;
+    }
+    form.modern-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+    .form-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 100%;
+      min-width: 220px;
+    }
+    .input-group.full-width {
+      min-width: 100%;
+    }
+    label {
+      font-weight: 600;
+      color: #004d7a;
+      margin-bottom: 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      user-select: none;
+    }
+    label i {
+      color: #0096c7;
+      font-size: 1.2rem;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+      padding: 0.65rem 1rem;
+      border-radius: 7px;
+      border: 1.7px solid #c6d5e3;
+      font-size: 1rem;
+      font-family: inherit;
+      color: #333;
+      transition: border-color 0.3s ease;
+      resize: vertical;
+    }
+    input:focus,
+    textarea:focus {
+      outline: none;
+      border-color: #0096c7;
+      box-shadow: 0 0 6px rgba(0, 150, 199, 0.4);
+    }
+    textarea {
+      min-height: 110px;
+    }
+    /* Form submit */
+    .form-footer {
+      display: flex;
+      justify-content: center;
+      margin-top: 1rem;
+    }
+    button.submit-btn {
+      background-color: #0096c7;
+      border: none;
+      color: white;
+      border-radius: 28px;
+      padding: 0.9rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      box-shadow: 0 6px 18px rgba(0,150,199,0.5);
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    button.submit-btn i {
+      font-size: 1.3rem;
+    }
+    button.submit-btn:hover {
+      background-color: #006a94;
+      box-shadow: 0 8px 23px rgba(0, 106, 148, 0.7);
+    }
+    /* Location Section */
+    .location-section {
+      max-width: 1140px;
+      margin: 3rem auto 6rem;
+      padding: 0 1rem;
+      user-select: none;
+    }
+    .location-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+      color: #004d7a;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    .location-icon {
+      font-size: 2.8rem;
+      color: #0096c7;
+    }
+    .location-card {
+      background: white;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.1);
+      border-radius: 14px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem 2.5rem;
+      justify-content: center;
+      align-items: center;
+    }
+    .address-details {
+      flex: 1 1 330px;
+      max-width: 350px;
+      color: #444;
+    }
+    .address-details h3 {
+      font-weight: 700;
+      font-size: 1.7rem;
+      color: #004d7a;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .address-details p {
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      gap: 0.6rem;
+      color: #333;
+      margin-bottom: 1.8rem;
+      user-select: none;
+    }
+    .address-details p i {
+      color: #0096c7;
+      font-size: 1.4rem;
+    }
+    .direction-btn {
+      background-color: #0096c7;
+      color: white;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      text-decoration: none;
+      padding: 0.8rem 2.2rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      box-shadow: 0 5px 16px rgba(0, 150, 199, 0.5);
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .direction-btn i {
+      font-size: 1.3rem;
+    }
+    .direction-btn:hover {
+      background-color: #006a94;
+      box-shadow: 0 7px 22px rgba(0, 106, 148, 0.7);
+    }
+    .map-container {
+  flex: 1 1 550px;
+  max-width: 600px;
+  min-width: 280px;
+  min-height: 370px;      /* Ensures enough height for the embed */
+  height: 370px;          /* Ensures height is fixed/flexible */
+  border-radius: 14px;
+  overflow: hidden;
+  background: #ddebf7;
+  box-shadow: 0 8px 40px rgba(0,150,199,0.16);
+  display: flex;
+  align-items: stretch;
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 370px;
+  border: 0;
+  display: block;
+}
+
+    /* Footer */
+    .footer {
+      background-color: #023047;
+      color: white;
+      padding: 2rem 1rem;
+      font-size: 0.9rem;
+      text-align: center;
+      user-select: none;
+    }
+    .footer-content {
+      max-width: 1140px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding-bottom: 1.2rem;
+    }
+    .footer-section {
+      flex: 1 1 260px;
+      min-width: 200px;
+    }
+    .footer-section h3 {
+      color: #ffb703;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      user-select: none;
+    }
+    .footer-section p,
+    .footer-section ul {
+      color: #ddd;
+      line-height: 1.5;
+    }
+    .footer-section ul {
+      list-style: none;
+    }
+    .footer-section ul li {
+      margin-bottom: 0.5rem;
+    }
+    .footer-section ul li a {
+      color: #ddd;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+    .footer-section ul li a:hover {
+      color: #ffb703;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .social-links a {
+      color: white;
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+    .social-links a:hover {
+      color: #ffb703;
+    }
+    .footer-bottom {
+      border-top: 1px solid #165b91;
+      padding-top: 1rem;
+      font-size: 0.85rem;
+      color: #bbb;
+      user-select: none;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+      .contact-grid {
+        flex-direction: column;
+        gap: 3rem;
+      }
+      .contact-info-card,
+      .contact-form-card {
+        max-width: 100%;
+        flex: 1 1 auto;
+      }
+      .footer-content {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .footer-section {
+        max-width: 100%;
+        text-align: center;
+      }
+      .social-links {
+        justify-content: center;
+      }
+      .location-card {
+        flex-direction: column;
+        align-items: center;
+      }
+      .address-details,
+      .map-container {
+        max-width: 100%;
+        width: 100%;
+      }
+    }
+    @media (max-width: 480px) {
+      .contact-hero h1 {
+        font-size: 2rem;
+      }
+      .contact-hero p {
+        font-size: 1.1rem;
+      }
+      .contact-quick-card h3 {
+        font-size: 1.15rem;
+      }
+      .contact-quick-card p {
+        font-size: 0.95rem;
+      }
+      .contact-form-card form {
+        gap: 1.2rem;
+      }
+      .form-row {
+        flex-direction: column;
+      }
+      button.submit-btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <h1>Sarni Pack FZE</h1>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="index.html#products">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contact Hero -->
+  <section class="contact-hero">
+    <div class="hero-content">
+      <h1 class="animate-on-scroll">Let's Connect</h1>
+      <p class="hero-subtitle animate-on-scroll">Your Trusted Partner in Packaging Solutions</p>
+      <div class="contact-cards animate-on-scroll">
+        <div class="contact-quick-card">
+          <div class="quick-icon">
+            <i class="fas fa-headset"></i>
+          </div>
+          <h3>24/7 Support</h3>
+          <p>Always here to help</p>
+        </div>
+        <div class="contact-quick-card">
+          <div class="quick-icon">
+            <i class="fas fa-bolt"></i>
+          </div>
+          <h3>Quick Response</h3>
+          <p>Within 24 hours</p>
+        </div>
+        <div class="contact-quick-card">
+          <div class="quick-icon">
+            <i class="fas fa-globe"></i>
+          </div>
+          <h3>Global Reach</h3>
+          <p>Worldwide service</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Main Section -->
+  <section class="contact-main">
+    <div class="container contact-grid">
+      <!-- Contact Information -->
+      <div class="contact-info-card animate-on-scroll">
+        <div class="card-header">
+          <div class="header-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h2>Contact Information</h2>
+        </div>
+        <div class="info-content">
+          <div class="contact-methods">
+            <div class="method">
+              <div class="method-icon"><i class="fas fa-envelope"></i></div>
+              <div class="method-details">
+                <span class="label">Email Us</span>
+                <span class="value">sarnipack@gmail.com</span>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="method-details">
+                <span class="label">Call Us</span>
+                <span class="value">+971 561602755</span>
+              </div>
+            </div>
+            <div class="method">
+              <div class="method-icon"><i class="fas fa-clock"></i></div>
+              <div class="method-details">
+                <span class="label">Business Hours</span>
+                <div class="hours">
+                  <span>Mon - Fri: 9:00 AM - 6:00 PM</span>
+                  <span>Sat: 9:00 AM - 1:00 PM</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="social-connect">
+            <h3>Connect With Us</h3>
+            <div class="social-links">
+              <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form-card animate-on-scroll">
+        <div class="form-header">
+          <h2>Send Us a Message</h2>
+          <p>We'll get back to you as soon as possible</p>
+        </div>
+        <form class="modern-form">
+          <div class="form-row">
+            <div class="input-group">
+              <label for="name"><i class="fas fa-user"></i><span>Full Name</span></label>
+              <input type="text" id="name" required />
+            </div>
+            <div class="input-group">
+              <label for="email"><i class="fas fa-envelope"></i><span>Email Address</span></label>
+              <input type="email" id="email" required />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="input-group">
+              <label for="phone"><i class="fas fa-phone"></i><span>Phone Number</span></label>
+              <input type="tel" id="phone" />
+            </div>
+            <div class="input-group">
+              <label for="company"><i class="fas fa-building"></i><span>Company Name</span></label>
+              <input type="text" id="company" />
+            </div>
+          </div>
+          <div class="input-group full-width">
+            <label for="subject"><i class="fas fa-tag"></i><span>Subject</span></label>
+            <input type="text" id="subject" required />
+          </div>
+          <div class="input-group full-width">
+            <label for="message"><i class="fas fa-comment"></i><span>Your Message</span></label>
+            <textarea id="message" rows="4" required></textarea>
+          </div>
+          <div class="form-footer">
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Location Section -->
+    <div class="location-section animate-on-scroll">
+      <div class="location-header">
+        <div class="location-icon"><i class="fas fa-map-marked-alt"></i></div>
+        <h2>Our Location</h2>
+      </div>
+      <div class="location-card">
+        <div class="address-details">
+          <h3>Sarni Pack FZE</h3>
+          <p><i class="fas fa-map-pin"></i> Al Shmookh Business Center, One UAQ, UAQ Free Trade Zone,<br />Umm Al Quwain, U.A.E</p>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Al+Shmookh+Business+Center+One+UAQ+Umm+Al+Quwain+UAE" 
+            target="_blank" rel="noopener" class="direction-btn">
+            <i class="fas fa-directions"></i> Get Directions
+          </a>
+        </div>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3624.852915166314!2d55.58397731495482!3d25.59569448369386!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ef5e2719cd07ca3%3A0x3dedba1873a2651a!2sAl%20Shmookh%20Business%20Center!5e0!3m2!1sen!2sae!4v1694634862827!5m2!1sen!2sae"
+            width="100%"
+            height="370"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Sarni Pack FZE Location Map"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>Contact Us</h3>
+          <p><i class="fas fa-map-marker-alt"></i> Dubai, UAE</p>
+          <p><i class="fas fa-phone"></i> +971 561602755</p>
+          <p><i class="fas fa-envelope"></i> sarnipack@gmail.com</p>
+        </div>
+        <div class="footer-section">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Sarni Pack FZE. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    hamburger.addEventListener('click', () => {
+      const isVisible = navLinks.style.display === 'flex';
+      navLinks.style.display = isVisible ? 'none' : 'flex';
+      navLinks.style.flexDirection = 'column';
+    });
+  </script>
+</body>
+</html>

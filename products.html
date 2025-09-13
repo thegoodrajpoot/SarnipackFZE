@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Products - Sarni Pack FZE</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+  />
+  <style>
+    /* Reset and basics */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fafafa;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+    /* Navbar */
+    .navbar {
+      background-color: #004d7a;
+      padding: 1rem 0;
+      color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .logo h1 {
+      font-weight: 700;
+      font-size: 1.8rem;
+      user-select: none;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+      user-select: none;
+    }
+    .nav-links a:hover {
+      color: #ffd700;
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      user-select: none;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: white;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    /* Section header */
+    h1.animate-on-scroll {
+      font-weight: 700;
+      font-size: 2.6rem;
+      margin: 2.5rem auto 1rem auto;
+      color: #004d7a;
+      max-width: 650px;
+      text-align: center;
+      user-select: none;
+    }
+    .section-intro {
+      font-size: 1.1rem;
+      color: #555;
+      max-width: 700px;
+      margin: 0 auto 3rem auto;
+      text-align: center;
+      user-select: none;
+    }
+    /* Product grid */
+    .product-grid {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 4rem;
+    }
+    .product-card {
+      background: white;
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: default;
+    }
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    }
+    .product-image {
+      position: relative;
+      overflow: hidden;
+    }
+    .product-image img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      user-select: none;
+    }
+    .product-card:hover .product-image img {
+      transform: scale(1.05);
+    }
+    .product-overlay {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .product-card:hover .product-overlay {
+      opacity: 1;
+    }
+    .product-overlay a.view-details {
+      background-color: #0096c7;
+      color: white;
+      padding: 0.35rem 0.9rem;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      box-shadow: 0 3px 10px rgba(0,150,199,0.5);
+      user-select: none;
+    }
+    .product-info {
+      padding: 1rem 1.5rem 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    .product-info h3 {
+      font-weight: 700;
+      color: #004d7a;
+      font-size: 1.3rem;
+      user-select: none;
+    }
+    .product-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+    .product-features span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      user-select: none;
+    }
+    .product-features i {
+      color: #0096c7;
+    }
+    .product-info p {
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.4;
+      user-select: text;
+    }
+    .cta-button {
+      margin-top: auto;
+      padding: 0.75rem 2rem;
+      background-color: #0096c7;
+      color: white;
+      text-align: center;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      box-shadow: 0 5px 14px rgba(0, 150, 199, 0.5);
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #0077b6;
+    }
+    /* Footer */
+    .footer {
+      background-color: #023047;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      font-size: 0.9rem;
+      user-select: none;
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .product-grid {
+        flex-direction: column;
+        align-items: center;
+      }
+      .product-card {
+        max-width: 90%;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+    @media (max-width: 500px) {
+      h1.animate-on-scroll {
+        font-size: 1.8rem;
+      }
+      .section-intro {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="logo">
+        <h1>Sarni Pack FZE</h1>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Products Section -->
+  <section class="products-page">
+    <div class="container">
+      <h1 class="animate-on-scroll">Our Products</h1>
+      <p class="section-intro animate-on-scroll">Discover our comprehensive range of high-quality packaging solutions and materials.</p>
+
+      <div class="product-grid">
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img src="images/BlueBags.jpg" alt="Paper Products" />
+            <div class="product-overlay">
+              <a href="paper-products.html" class="view-details">View Details</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Nonwoven Spunbond Fabrics</h3>
+            <div class="product-features">
+              <span><i class="fas fa-check"></i> Multiple GSM options</span>
+              <span><i class="fas fa-check"></i> Eco-friendly materials</span>
+              <span><i class="fas fa-check"></i> Custom colors available</span>
+            </div>
+            <p>
+              Our premium spunbond nonwoven fabrics are perfect for various applications including packaging, agriculture, and medical use.
+            </p>
+            <a href="paper-products.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img src="images/multicolor-bags.jpg" alt="Plastic Materials" />
+            <div class="product-overlay">
+              <a href="plastic-materials.html" class="view-details">View Details</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Agriculture Nonwoven Fabrics</h3>
+            <div class="product-features">
+              <span><i class="fas fa-check"></i> UV stabilized</span>
+              <span><i class="fas fa-check"></i> Weather resistant</span>
+              <span><i class="fas fa-check"></i> Moisture control</span>
+            </div>
+            <p>
+              Specialized nonwoven fabrics designed for agricultural applications, providing optimal growing conditions and crop protection.
+            </p>
+            <a href="plastic-materials.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+
+        <div class="product-card animate-on-scroll">
+          <div class="product-image">
+            <img src="images/non-woven-bags.jpg" alt="Packaging Materials" />
+            <div class="product-overlay">
+              <a href="packaging-materials.html" class="view-details">View Details</a>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3>Manual Stitched Nonwoven Bags</h3>
+            <div class="product-features">
+              <span><i class="fas fa-check"></i> Customizable designs</span>
+              <span><i class="fas fa-check"></i> Durable construction</span>
+              <span><i class="fas fa-check"></i> Eco-friendly options</span>
+            </div>
+            <p>
+              High-quality manual stitched nonwoven bags perfect for retail, promotional, and packaging applications.
+            </p>
+            <a href="packaging-materials.html" class="cta-button">Learn More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">&copy; 2025 Sarni Pack FZE. All rights reserved.</div>
+  </footer>
+
+  <script>
+    // Mobile nav toggle
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+      const isVisible = navLinks.style.display === "flex";
+      navLinks.style.display = isVisible ? "none" : "flex";
+      navLinks.style.flexDirection = "column";
+    });
+  </script>
+</body>
+</html>
